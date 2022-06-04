@@ -13,7 +13,7 @@ class FutureAccountUtil: ObservableObject {
     static var shared = FutureAccountUtil()
     
     @Published var accountInfo = FutureAccountInfo()
-    @Published var lastUpdate = Date.now
+    @Published var lastUpdate = Date()
     
     public var formattedLastUpdateDate: String {
         let df = DateFormatter()
@@ -68,7 +68,7 @@ class FutureAccountUtil: ObservableObject {
                         let decoder = JSONDecoder()
                         let accountInfo = try decoder.decode(FutureAccountInfo.self, from: data)
                         self?.accountInfo = accountInfo
-                        self?.lastUpdate = Date.now
+                        self?.lastUpdate = Date()
                     } catch let error as NSError {
                         print(error)
                     }

@@ -78,7 +78,7 @@ enum BinanceFutureAPI: String {
     
     func parameters(with userInfo: [String:Any]? = nil, secret: String? = nil) throws -> String {
         var parameters = userInfo ?? [String:Any]()
-        let timestamp = Int(Date.now.timeIntervalSince1970*1000)
+        let timestamp = Int(Date().timeIntervalSince1970*1000)
         parameters["timestamp"] = timestamp
         let parameterString = parameters.map { String("\($0.key)=\($0.value)") }.joined(separator: "&")
         
